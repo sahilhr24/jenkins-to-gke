@@ -5,7 +5,7 @@ pipeline {
         PROJECT_ID = 'pvt-stage'
         GKE_CLUSTER = 'gke-cluster02'
         GKE_ZONE = 'asia-south1'
-        IMAGE_NAME = 'asia-south1-docker.pkg.dev/pvt-stage/cloud-run-source-deploy/my_custom_nginx:latest'
+        IMAGE_NAME = 'gcr.io/${PROJECT_ID}/my-ap'
     }
 
     stages {
