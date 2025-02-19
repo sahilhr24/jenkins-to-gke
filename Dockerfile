@@ -1,23 +1,11 @@
-#Use the official Nginx image
+# Use the official Nginx image as the base image
 FROM nginx:latest
 
-#Set working directory
-#WORKDIR /usr/share/nginx/html
+# Copy custom HTML file to the Nginx web root
+COPY index.html /usr/share/nginx/html/index.html
 
-#Copy the HTML files
-COPY default.conf /etc/nginx/conf.d/
+# Expose port 80 to allow external access
+EXPOSE 80
 
-#Remove the default index.html file
-#RUN rm -f /usr/share/nginx/html/index*
-
-COPY index.html /usr/share/nginx/html/
-#COPY ondc-site-verification.html /usr/share/nginx/html/
-
-#Expose port 8080 for Cloud Run
-EXPOSE 8080
-
-#Override the default Nginx configuration (if needed)
-#COPY nginx.conf /etc/nginx/nginx.conf
-
-#Start Nginx
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
